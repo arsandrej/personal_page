@@ -1,0 +1,324 @@
+body {
+    background-color: black;
+    background: url("img/pexels-photo-998641.jpeg") ;
+    background-size: contain;
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 1.4;
+}
+/*.press-start-2p-regular {*/
+/*    font-family: "Press Start 2P", system-ui;*/
+/*    font-weight: 400;*/
+/*    font-style: normal;*/
+/*}*/
+h1, h2, h3, .nav, #home > h2, #about > h2, #gallery > h2
+, #contact > h2, body > header > h1, #hobbies > h2{
+    font-family: "Press Start 2P", system-ui;
+}
+header {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    height: 150px;
+    color: yellow;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+    width: 100px;
+    /*color: yellow;*/
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    height: 60px;
+    width: 60px;
+}
+
+main {
+    margin: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+}
+#hobbies {
+    margin-top: 200px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+#hobbies, .para, .berserk {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+#hobbies, .para, .berserk {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.para.visible, .berserk.visible {
+    transition-delay: 1s; /* Add a delay for para and berserk elements */
+}
+
+#hobbies.visible {
+    opacity: 1;
+}
+
+.para.visible, .berserk.visible {
+    opacity: 1;
+    transition-delay: 1s; /* Add a delay for para and berserk elements */
+}
+
+#gallery img {
+    width: 100px;
+    margin: 10px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+header nav:nth-child(3) {
+    margin-top: -140px;
+}
+nav.first a:hover ~ .nav .lightsaber {
+    opacity: 0;
+}
+.lightsaber{
+    scale: 0.4;
+    rotate: 90deg;
+    opacity: 0;
+}
+/* blade */
+.lightsaber{
+    position: relative;
+    width: 11px;
+    height: 500px;
+    margin-top: -100px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px, 0px 0px 2px inset;
+    animation: glow  1.5ms linear infinite;
+}
+
+/* hilt */
+.lightsaber::before{
+    content: '';
+    position:absolute;
+    top:90%;
+    right:-40%;
+    height: 200px;
+    width: 20px;
+    background-image:
+        /*   glow effect   */
+            linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.7) 25%,
+            rgba(255, 255, 255, 0.2) 37.5%,
+            rgba(  128,   128,   128, 0.5) 100%),
+                /*   hilt base   */
+            linear-gradient(to bottom,
+            gray 0, gray 10%,
+            black 10%, black 12%,
+            gray 12%, gray 15%,
+            black 15%, black 17%,
+            gray 17%, gray 19%,
+            black 19%, black 21%,
+            gray 21%, gray 23%,
+            black 23%, black 25%,
+            gray 25%, gray 45%,
+            black 45% , black 55%,
+            transparent 55% , transparent 95%,
+            black 95%, silver
+            ),
+                /*    handle lines    */
+            linear-gradient(to right,
+            gray 0%, gray 12.5%,
+            black 12.5%, black 25%,
+            silver 37.5%, silver 37.5%,
+            gray 37.5%, gray 62.5%,
+            black 62.5%, grey 75%,
+            silver 75%, silver 87.5%,
+            gray 87.5%, gray 100%
+            );
+}
+
+/* button */
+.lightsaber::after{
+    content: '';
+    position:absolute;
+    top:105%;
+    right:0;
+    left:0;
+    height: 10px;
+    width: 10px;
+    background-image:
+            radial-gradient( ellipse,
+            red 0%, black 60%,
+            transparent 60%, transparent
+            );
+}
+
+/* blade glow animation */
+@keyframes glow {
+    from {
+        color: dodgerblue;
+        box-shadow: 0 0 9px dodgerblue ;
+    }
+    50% {
+        color: dodgerblue;
+        box-shadow: 0 0 18px dodgerblue ;
+    }
+    to {
+        color: blue;
+        box-shadow: 0 0 9px dodgerblue ;
+    }
+
+}
+#home{
+    width: 800px;
+    background: #333;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px 80px 80px;
+    border-radius: 40px;
+    justify-content: space-between;
+}
+video {
+    /*margin-top: 50px;*/
+    width: 700px;
+}
+#about{
+    width: 600px;
+    background: #333;
+    border-radius: 40px;
+    padding: 0 50px 50px 50px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#about h2{
+    text-align: center;
+}
+.display{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 1800px;
+    margin-top: 100px;
+}
+.text{
+    width: 200px;
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.row img{
+    width: 400px;
+    height: 300px;
+    scale: 0.9;
+}
+#gallery, #hobbies, #contact{
+    width: 1500px;
+    margin: auto;
+    border-radius: 40px;
+    background: #333333;
+    padding: 50px 80px 80px 80px;
+    margin-top: 200px;
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.row1{
+    display: flex;
+    justify-content: space-evenly;
+}
+.para{
+    background: darkblue;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start ;
+    box-shadow: 0 0 10px rgba(0, 0, 139, 0.8),
+    0 0 20px rgba(0, 0, 139, 0.6),
+    0 0 30px rgba(0, 0, 139, 0.4),
+    0 0 40px rgba(0, 0, 139, 0.2);
+    margin: 10px;
+}
+.para p{
+    width: 400px;
+
+}
+.para img{
+    width: 300px;
+}
+
+.berserk {
+    background: darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 1300px;
+    box-shadow: 0 0 10px rgba(0, 0, 139, 0.8),
+    0 0 20px rgba(0, 0, 139, 0.6),
+    0 0 30px rgba(0, 0, 139, 0.4),
+    0 0 40px rgba(0, 0, 139, 0.2);
+}
+
+.berserk img{
+   width:550px;
+    contain: content;
+}
+.berserk > img{
+    width: 30px;
+}
+.berk{
+    width: 1200px;
+    justify-content: space-evenly;
+    display: flex;
+}
+.box{
+    background: url("img/blue.jpg");
+    background-size: contain;
+    width: 400px;
+    height: 300px;
+    scale: 0.9;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+#hobbies {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
