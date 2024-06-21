@@ -7,6 +7,7 @@ body {
     font-weight: normal;
     font-size: 11px;
     line-height: 1.4;
+    zoom: 0.95;
 }
 /*.press-start-2p-regular {*/
 /*    font-family: "Press Start 2P", system-ui;*/
@@ -71,11 +72,11 @@ footer {
     opacity: 1;
 }
 
-.para.visible, .berserk.visible {
+#hobbies.visible ,#games.visible, #contact.visible{
     transition-delay: 1s; /* Add a delay for para and berserk elements */
 }
 
-#hobbies.visible {
+#hobbies.visible , #games.visible, #contact.visible{
     opacity: 1;
 }
 
@@ -239,7 +240,7 @@ video {
     height: 300px;
     scale: 0.9;
 }
-#gallery, #hobbies, #contact{
+#games, #hobbies, #contact{
     width: 1500px;
     margin: auto;
     border-radius: 40px;
@@ -318,7 +319,50 @@ video {
     align-items: center;
     justify-content: center;
 }
-#hobbies {
+#hobbies , #games, #contact{
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
+.contacts div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+.contacts img{
+    width: 80px;
+    margin-right: 10px;
+}
+.contacts div:nth-child(2) img{
+    width: 95px;
+}
+.contacts{
+    display: flex;
+    justify-content: space-around;
+}
+.games{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.games div {
+    width: 500px;
+    background: darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 139, 0.8),
+    0 0 20px rgba(0, 0, 139, 0.6),
+    0 0 30px rgba(0, 0, 139, 0.4),
+    0 0 40px rgba(0, 0, 139, 0.2);
+}
+.games img{
+    margin-top: 30px;
+    width: 450px;
+}
+
+

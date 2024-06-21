@@ -1,74 +1,74 @@
-const navLinks = document.querySelectorAll('.first a');
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.first a');
+    const igniteSound = document.getElementById('igniteSound');
 
-const igniteSound = document.getElementById('igniteSound');
+    function getCorrespondingLightsaber(link) {
+        const classMap = {
+            'home': '.current1',
+            'about': '.current2',
+            'hobbies': '.current3',
+            'games': '.current4',
+            'contact': '.current5'
+        };
+        return document.querySelector(classMap[link.className]);
+    }
 
-function getCorrespondingLightsaber(link) {
-    const classMap = {
-        'home': '.current1',
-        'about': '.current2',
-        'hobbies': '.current3',
-        'gallery': '.current4',
-        'contact': '.current5'
-    };
-    return document.querySelector(classMap[link.className]);
-}
-
-navLinks.forEach(link => {
-    const lightsaber = getCorrespondingLightsaber(link);
-    link.addEventListener('mouseenter', () => {
-        if (lightsaber) {
-            lightsaber.style.opacity = '1';
-            igniteSound.currentTime = 0;
-            igniteSound.play();
-        }
-    });
-    link.addEventListener('mouseleave', () => {
-        if (lightsaber) {
-            lightsaber.style.opacity = '0';
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    var audioElement = document.getElementById('igniteSound');
-
-    audioElement.volume = 0.15;
-
-    var navLinks = document.querySelectorAll('nav.first ul.nav li a');
-
-    navLinks.forEach(function(navLink) {
-        navLink.addEventListener('mouseover', function() {
-            audioElement.play();
+    navLinks.forEach(link => {
+        const lightsaber = getCorrespondingLightsaber(link);
+        link.addEventListener('mouseenter', () => {
+            if (lightsaber) {
+                lightsaber.style.opacity = '1';
+                igniteSound.currentTime = 0;
+                igniteSound.play();
+            }
+        });
+        link.addEventListener('mouseleave', () => {
+            if (lightsaber) {
+                lightsaber.style.opacity = '0';
+            }
         });
     });
+
+    const sectionObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    function createSectionObserver(sectionId, elementsSelector) {
+        const section = document.getElementById(sectionId);
+        const elements = document.querySelectorAll(elementsSelector);
+
+        if (!section) {
+            console.error(`Section with ID ${sectionId} not found`);
+            return;
+        }
+
+        if (elements.length === 0) {
+            console.error(`No elements found with selector ${elementsSelector} in section ${sectionId}`);
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(`Section ${sectionId} is intersecting`);
+                    section.classList.add('visible');
+                    setTimeout(() => {
+                        elements.forEach(element => element.classList.add('visible'));
+                    }, 30);
+                } else {
+                    console.log(`Section ${sectionId} is not intersecting`);
+                    section.classList.remove('visible');
+                    elements.forEach(element => element.classList.remove('visible'));
+                }
+            });
+        }, sectionObserverOptions);
+
+        observer.observe(section);
+    }
+
+    createSectionObserver('hobbies', '#hobbies .para, #hobbies .berserk');
+    createSectionObserver('games', '#games > div');
+    createSectionObserver('contact', '#contact .contacts > div');
 });
-    document.addEventListener("DOMContentLoaded", function() {
-    const hobbiesSection = document.getElementById('hobbies');
-    const paraElements = document.querySelectorAll('.para');
-    const berserkElement = document.querySelector('.berserk');
-
-    const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-    const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-    if (entry.isIntersecting) {
-    hobbiesSection.classList.add('visible');
-    setTimeout(() => {
-    paraElements.forEach(para => para.classList.add('visible'));
-    berserkElement.classList.add('visible');
-}, 30);
-
-} else {
-    hobbiesSection.classList.remove('visible');
-    paraElements.forEach(para => para.classList.remove('visible'));
-    berserkElement.classList.remove('visible');
-}
-});
-}, observerOptions);
-
-    observer.observe(hobbiesSection);
-});
-
